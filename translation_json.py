@@ -17,6 +17,120 @@ class AnnotatedTranslationSide(BaseModel):
     text: dict[int, WordInAnnotatedTranslation] = Field({}, description="List of words on this side of the translation, ordered by an integer index. You should create the translations first, then put them in this list format, then finally set the 'match' fields per word.")
 
 class AnnotatedTranslation(BaseModel):
-    """Model for a full annotated aligned translation"""
+    """Model for an annotated aligned translation"""
     source: AnnotatedTranslationSide = Field(..., description="The source side of an annotated translation.")
     translation: AnnotatedTranslationSide = Field(..., description="The post-translation side of an annotated translation.")
+
+#Example
+daodejing1 = AnnotatedTranslation(
+    source=AnnotatedTranslationSide(
+        lang="zh",
+        text={
+            1: WordInAnnotatedTranslation(
+                word= "道",
+				meaning=["The Tao", "way", "path", "to speak", "to guide"],
+				match=[1,2],
+				latin= "dào",
+            ),
+            2: WordInAnnotatedTranslation(
+                word= "可",
+                meaning=["can", "may", "able to"],
+                match=[3,4],
+                latin= "kě",
+            ),
+            3: WordInAnnotatedTranslation(
+                word= "道",
+                meaning=["The Tao", "way", "path", "to speak", "to guide"],
+                match=[5,6,7],
+                latin= "dào",
+            ),
+            4: WordInAnnotatedTranslation(
+                word= "非",
+                meaning=["not", "non-", "un-"],
+                match=[8,9],
+                latin= "fēi",
+            ),
+            5: WordInAnnotatedTranslation(
+                word= "常",
+                meaning=["eternal", "constant", "unchanging"],
+                match=[10,11],
+                latin= "cháng",
+            ),
+            6: WordInAnnotatedTranslation(
+                word= "道",
+                meaning=["The Tao", "way", "path", "to speak", "to guide"],
+                match=[12],
+                latin= "dào",
+            ),
+        }
+    ),
+    translation=AnnotatedTranslationSide(
+        lang="en",
+        text={
+            1: WordInAnnotatedTranslation(
+                word="The",
+                meaning=[],
+                match=[],
+            ),
+            2: WordInAnnotatedTranslation(
+                word="Way",
+                meaning=["道"],
+                match=[1],
+            ),
+            3: WordInAnnotatedTranslation(
+                word="that",
+                meaning=[],
+
+                match=[],
+            ),
+            4: WordInAnnotatedTranslation(
+                word="can",
+                meaning= ["可", "能"],
+                match=[2],
+            ),
+            5: WordInAnnotatedTranslation(
+                word="be",
+                meaning=[],
+
+                match=[],
+            ),
+            6: WordInAnnotatedTranslation(
+                word="spoken",
+                meaning=["言"],
+                match=[3],
+                footnote="Note that the same character is used for both 'way' and 'to speak', making the direct translation ambiguous."
+            ),
+            7: WordInAnnotatedTranslation(
+                word="of",
+                meaning=[],
+                match=[],
+            ),
+            8: WordInAnnotatedTranslation(
+                word="is",
+                meaning=[],
+                match=[],
+            ),
+            9: WordInAnnotatedTranslation(
+                word="not",
+                meaning=["不"],
+                match=[4],
+            ),
+            10: WordInAnnotatedTranslation(
+                word="the",
+                meaning=[],
+                match=[],
+            ),
+            11: WordInAnnotatedTranslation(
+                word="eternal",
+                meaning=["常"],
+                match=[5],
+            ),
+            12: WordInAnnotatedTranslation(
+                word="Way",
+                meaning=["道"],
+                match=[6],
+            ),
+        }
+    )
+)
+print(daodejing1.model_json_schema())
