@@ -1,5 +1,8 @@
+import time
+import json
 from typing import List
 from pydantic import BaseModel, Field
+from llama_cpp import Llama
 
 class WordInAnnotatedTranslation(BaseModel):
     """Model for one word in an annotated aligned translation."""
@@ -21,6 +24,12 @@ class AnnotatedTranslation(BaseModel):
     source: AnnotatedTranslationSide = Field(..., description="The source side of an annotated translation.")
     translation: AnnotatedTranslationSide = Field(..., description="The post-translation side of an annotated translation.")
 
+class AnnotatedTranslationRequest(BaseModel):
+    """Model for a request to the AI to produce an annotated aligned translation."""
+    source: str = Field(..., description="The source text to be translated.")
+    source_lang: str = Field(..., description="The language of the source text.")
+    target_lang: str = Field(..., description="The language to translate the source text into.")
+
 #Example
 daodejing1 = AnnotatedTranslation(
     source=AnnotatedTranslationSide(
@@ -39,7 +48,7 @@ daodejing1 = AnnotatedTranslation(
                 latin= "kě",
             ),
             3: WordInAnnotatedTranslation(
-                word= "道",
+                word= "道,",
                 meaning=["The Tao", "way", "path", "to speak", "to guide"],
                 match=[5,6,7],
                 latin= "dào",
@@ -133,4 +142,45 @@ daodejing1 = AnnotatedTranslation(
         }
     )
 )
-print(daodejing1.model_json_schema())
+#print(daodejing1.model_json_schema())
+
+request_daodejing1 = AnnotatedTranslationRequest(
+    source="""道可道，非常道""",
+    source_lang="zh",
+    target_lang="en"
+)
+
+request_spanish_joke = AnnotatedTranslationRequest(
+    source="""¡Socorro, me ha picado una víbora!
+    ¿Cobra?
+    No, gratis.""",
+    source_lang="es",
+    target_lang="en"
+)
+
+#===================AI stuff begins here
+
+checkpoint = "LiquidAI/LFM2.5-2.6B-GGUF"
+model = Llama.from_pretrained(checkpoint, device_map="auto", load_in_8bit=True, trust_remote_code=True, filename="*Q8_0.gguf", n_ctx=8192, n_batch=512, n_gpu_layers=32, verbose=True)
+
+messages = [
+    {
+        "role": "system",
+        "content": "You are an expert translator and linguist. Given a source text in one language, you will provide an annotated aligned translation, where each word in the source text is matched with its corresponding word(s) in your translated text. The output should be in JSON format, following the structure of the AnnotatedTranslation model."
+        f"Follow this schema: {json.dumps(AnnotatedTranslation.model_json_schema(), indent=2)}",
+    },
+    {"role": "user", "content": f"{request_daodejing1.model_dump_json(indent=2)}"},
+    {"role": "assistant", "content": f"{daodejing1.model_dump_json(indent=2)}"},
+    {"role": "user", "content": f"{request_spanish_joke.model_dump_json(indent=2)}"},
+]
+response_format = {"type": "json_object", "schema": AnnotatedTranslation.model_json_schema()}
+
+start = time.time()
+
+outputs = model.create_chat_completion(
+    messages=messages, response_format=response_format
+)
+
+print(outputs["choices"][0]["message"]["content"])
+
+print(f"Time: {time.time() - start}")

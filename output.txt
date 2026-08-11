@@ -1,0 +1,23 @@
+{"source": 
+{"lang": "es", "text": 
+{"1": {"word": "¡Socorro,", "meaning": [], "match": [], "latin": null, "footnote": null}, 
+"2": {"word": "me", "meaning": [], "match": [], "latin": null, "footnote": null}, 
+"3": {"word": "ha", "meaning": [], "match": [], "latin": null, "footnote": null}, 
+"4": {"word": "picado", "meaning": [], "match": [], "latin": null, "footnote": null}, 
+"5": {"word": "una", "meaning": [], "match": [], "latin": null, "footnote": null}, 
+"6": {"word": "víbora!", "meaning": [], "match": [], "latin": null, "footnote": null}, 
+"7": {"word": "¿Cobra?", "meaning": [], "match": [], "latin": null, "footnote": null}, 
+"8": {"word": "No,", "meaning": [], "match": [], "latin": null, "footnote": null}, 
+"9": {"word": "gratis.", "meaning": [], "match": [], "latin": null, "footnote": null}}},
+"translation": {"lang": "en", "text": 
+{"1": {"word": "Help,", "meaning": ["Socorro", "emergency"], "match": [1], "latin": null, "footnote": null}, 
+"2": {"word": "a", "meaning": [], "match": [], "latin": null, "footnote": null}, 
+"3": {"word": "snake!", "meaning": ["víbora"], "match": [2], "latin": null, "footnote": "The exclamation mark indicates surprise or alarm at being bitten."}, 
+"4": {"word": "Can", "meaning": ["¿", "question particle"], "match": [], "latin": null, "footnote": "The question mark indicates a question is being asked."}, 
+"5": {"word": "it", "meaning": [], "match": [], "latin": null, "footnote": null}, 
+"6": {"word": "be", "meaning": [], "match": [], "latin": null, "footnote": null}, 
+"7": {"word": "a", "meaning": [], "match": [], "latin": null, "footnote": null}, 
+"8": {"word": "snake", "meaning": ["víbora"], "match": [3], "latin": null, "footnote": "The snake is the object of the bite."}, 
+"9": {"word": "!", "meaning": [], "match": [], "latin": null, "footnote": "Exclamation mark indicating the bite is complete and the speaker is reacting."}, 
+"10": {"word": "No,", "meaning": [], "match": [], "latin": null, "footnote": "Affirmative answer to the question 'Is it a snake?'"}, 
+"11": {"word": "free.", "meaning": [], "match": [], "latin": null, "footnote": "The word 'gratis' means free/without charge in Spanish."}}} }
