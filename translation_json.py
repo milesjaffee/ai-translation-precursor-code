@@ -8,10 +8,10 @@ class WordInAnnotatedTranslation(BaseModel):
     """Model for one word in an annotated aligned translation."""
     word: str = Field(..., description="The word in the language of this side of the translation.")
     meaning: List[str] = Field(..., description="Possible meanings of the word in the language of the other side of the translation. Doesn't have to match up.")
-    match: List[int] = Field(..., description="A list of the indexes of the words on the other side of the translation that correspond to this word on this side. This list can be empty (for a grammatical particle or phrasing that isn't used in the other language), have one element (a simple case of a word that just translates directly into another word), or contain multiple, possibly non-contiguous indexes (for the introduction of grammatical particles or the expansion of terms that only work in one language). In any case, these indexes correspond to the integer index numbers in the word list of the other side of the translation.")
+    match: List[int] = Field(..., description="A list of the indexes of the words on the OTHER side of the translation that correspond to this word on this side. This list should normally have one element (a simple case of a word that just translates directly into another word), but it can also be empty (for a grammatical particle or phrasing that doesn't directly correspond to any one term in the other side), or contain multiple, possibly non-contiguous indexes (for the introduction of grammatical particles or the expansion of terms that only work in one language). In any case, THESE NUMBERS CORRESPOND TO THE INDEXES OF WORDS ON THE OTHER SIDE OF THE TRANSLATION.")
 
-    latin: str | None = Field(default=None, description="The Latin-alphabet transcription of any non-Latin characters present, such as pinyin for Chinese characters. This is not used on the json if this side of the translation uses a language with the Latin alphabet.")
-    footnote: str | None =Field(default=None, description="An optional note explaining a word, phrase, joke/pun, or idiom that doesn't translate directly or is highly ambiguous. Only present in cases of confusion, substantial rephrasing, or jokes/idioms.")
+    latin: str | None = Field(default=None, description="The Latin-alphabet transcription of any non-Latin characters present, such as pinyin for Chinese characters. SHOULD BE ABSENT FOR EVERY WORD in languages that use a Latin alphabet, including Latin-related alphabets like Turkish.")
+    footnote: str | None =Field(default=None, description="An optional note explaining a word, phrase, joke/pun, or idiom that doesn't translate directly or is highly ambiguous. Only present in cases of confusion, substantial rephrasing, or jokes/idioms. Should be absent for the vast majority of words.")
 
 
 class AnnotatedTranslationSide(BaseModel):
@@ -19,7 +19,7 @@ class AnnotatedTranslationSide(BaseModel):
     lang: str = Field(..., description="Language of this side of the translation.")
     text: dict[int, WordInAnnotatedTranslation] = Field({}, description="List of words on this side of the translation, ordered by an integer index.")
 
-class AnnotatedTranslation(BaseModel):
+class Translation(BaseModel):
     """Model for an annotated aligned translation"""
     source: AnnotatedTranslationSide = Field(..., description="The source side of an annotated translation.")
     translation: AnnotatedTranslationSide = Field(..., description="The post-translation side of an annotated translation.")
@@ -30,8 +30,16 @@ class AnnotatedTranslationRequest(BaseModel):
     source_lang: str = Field(..., description="The language of the source text.")
     target_lang: str = Field(..., description="The language to translate the source text into.")
 
+class TranslationAnnotationRequest(BaseModel):
+    """Model for a request to the AI to produce an annotated aligned translation."""
+    source_lang: str = Field(..., description="The language of the source text.")
+    source: str = Field(..., description="The source text.")
+    target_lang: str = Field(..., description="The target language of the translation.")
+    translation: str = Field(..., description="The translation of the source text into the target language.")
+
+
 #Example
-daodejing1 = AnnotatedTranslation(
+daodejing1 = Translation(
     source=AnnotatedTranslationSide(
         lang="zh",
         text={
@@ -149,7 +157,14 @@ request_daodejing1 = AnnotatedTranslationRequest(
     target_lang="en"
 )
 
-spanish_joke = AnnotatedTranslation(
+annotation_request_daodejing1 = TranslationAnnotationRequest(
+    source_lang="zh",
+    source="""道可道，非常道""",
+    target_lang="en",
+    translation="""The Way that can be spoken of is not the eternal Way."""
+)
+
+spanish_joke = Translation(
     source=AnnotatedTranslationSide(
         lang="es",
         text={
@@ -286,6 +301,13 @@ request_spanish_joke = AnnotatedTranslationRequest(
     target_lang="en"
 )
 
+annotation_request_spanish_joke = TranslationAnnotationRequest(
+    source_lang="es",
+    source="""¡Socorro, me ha picado una víbora! ¿Cobra? No, gratis.""",
+    target_lang="en",
+    translation="""Help! I've been bitten by a viper! Does it cost money? No, it's free."""
+)
+
 request_istanbul_wikipedia = AnnotatedTranslationRequest(
     source="""
     Istanbul is the largest city in Turkey, a megacity, constituting the country's economic, cultural, and historical center. 
@@ -297,16 +319,37 @@ request_istanbul_wikipedia = AnnotatedTranslationRequest(
     source_lang="en",
     target_lang="es",
 )
+
+annotation_request_istanbul_wikipedia = TranslationAnnotationRequest(
+    source_lang="en",
+    source="""Istanbul is the largest city in Turkey, a megacity, constituting the country's economic, cultural, and historical center. 
+        With a population of over 15 million, it is home to 18% of the population of Turkey. Istanbul is among the largest cities in Europe and in the world by population. 
+        It is a city on two continents; about two-thirds of its population live in Europe and the rest in Asia. 
+        Istanbul straddles the Bosphorus – one of the world's busiest waterways – in northwestern Turkey, between the Sea of Marmara and the Black Sea. 
+        Its area of 5,461 square kilometers is coterminous with Istanbul Province.
+        """,
+    target_lang="es",
+    translation="""Estambul es la ciudad más grande de Turquía, una megaciudad que constituye el centro económico, cultural e histórico del país. 
+        Con una población de más de 15 millones, alberga al 18% de la población de Turquía. Estambul se encuentra entre las ciudades más grandes de Europa y del mundo por población. 
+        Es una ciudad en dos continentes; aproximadamente dos tercios de su población viven en Europa y el resto en Asia. 
+        Estambul se extiende a lo largo del Bósforo, uno de los canales más transitados del mundo, en el noroeste de Turquía, entre el Mar de Mármara y el Mar Negro. 
+        Su área de 5,461 kilómetros cuadrados es coterminosa con la Provincia de Estambul.
+        """,
+)
+
 #===================AI stuff begins here
 
-checkpoint = "unsloth/gemma-4-12B-it-qat-GGUF"
-model = Llama.from_pretrained(checkpoint, device_map="auto", load_in_8bit=True, trust_remote_code=True, filename="*UD-Q4_K_XL.gguf", n_ctx=8192, n_batch=512, n_gpu_layers=32, verbose=True)
+#checkpoint = "unsloth/gemma-4-12B-it-qat-GGUF"
+#model = Llama.from_pretrained(checkpoint, device_map="auto", load_in_8bit=True, trust_remote_code=True, filename="*UD-Q4_K_XL.gguf", n_ctx=8192, n_batch=512, n_gpu_layers=32, verbose=True)
 
-messages = [
+checkpoint = "LiquidAI/LFM2.5-2.6B-GGUF"
+model = Llama.from_pretrained(checkpoint, device_map="auto", load_in_8bit=True, trust_remote_code=True, filename="*Q8_0.gguf", n_ctx=8192, n_batch=512, n_gpu_layers=32, verbose=True)
+
+messages_source_to_aligned = [
     {
         "role": "system",
         "content": "You are an expert translator and linguist. Given a source text in one language, you will provide an annotated aligned translation, where each word in the source text is matched with its corresponding word(s) in your translated text. The output should be in JSON format, following the structure of the AnnotatedTranslation model. You will create the translation itself before filling in the 'match' fields."
-        f"Follow this schema: {json.dumps(AnnotatedTranslation.model_json_schema(), indent=2)}",
+        f"Follow this schema: {json.dumps(Translation.model_json_schema(), indent=2)}",
     },
     {"role": "user", "content": f"{request_daodejing1.model_dump_json(indent=2)}"},
     {"role": "assistant", "content": f"{daodejing1.model_dump_json(indent=2)}"},
@@ -314,12 +357,26 @@ messages = [
     {"role": "assistant", "content": f"{spanish_joke.model_dump_json(indent=2)}"},
     {"role": "user", "content": f"{request_istanbul_wikipedia.model_dump_json(indent=2)}"},
 ]
-response_format = {"type": "json_object", "schema": AnnotatedTranslation.model_json_schema()}
+
+messages_translation_to_aligned = [
+    {
+        "role": "system",
+        "content": "You are a helpful assistant. Given a source text in one language and its translation in another language, you will provide an annotated aligned translation, where each word in the source text is annotated with the index of its corresponding word(s) in the translated text via the 'match' field and has its meaning clarified via the 'meaning' and 'footnote' fields. The 'latin' field can be absent unless either the source or target language uses a non-Latin script. The output should be in JSON format, following the structure of the Translation model."
+        f"Follow this schema: {json.dumps(Translation.model_json_schema(), indent=2)}",
+    },
+    {"role": "user", "content": f"{annotation_request_daodejing1.model_dump_json(indent=2)}"},
+    {"role": "assistant", "content": f"{daodejing1.model_dump_json(indent=2)}"},
+    {"role": "user", "content": f"{annotation_request_spanish_joke.model_dump_json(indent=2)}"},
+    {"role": "assistant", "content": f"{spanish_joke.model_dump_json(indent=2)}"},
+    {"role": "user", "content": f"{annotation_request_istanbul_wikipedia.model_dump_json(indent=2)}"},
+]
+
+response_format = {"type": "json_object", "schema": Translation.model_json_schema()}
 
 start = time.time()
 
 outputs = model.create_chat_completion(
-    messages=messages, response_format=response_format
+    messages=messages_translation_to_aligned, response_format=response_format
 )
 
 print(json.dumps(outputs["choices"][0]["message"]["content"], indent=2))
