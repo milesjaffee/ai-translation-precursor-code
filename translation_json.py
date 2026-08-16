@@ -299,8 +299,8 @@ request_istanbul_wikipedia = AnnotatedTranslationRequest(
 )
 #===================AI stuff begins here
 
-checkpoint = "LiquidAI/LFM2.5-2.6B-GGUF"
-model = Llama.from_pretrained(checkpoint, device_map="auto", load_in_8bit=True, trust_remote_code=True, filename="*Q8_0.gguf", n_ctx=8192, n_batch=512, n_gpu_layers=32, verbose=True)
+checkpoint = "unsloth/gemma-4-12B-it-qat-GGUF"
+model = Llama.from_pretrained(checkpoint, device_map="auto", load_in_8bit=True, trust_remote_code=True, filename="*UD-Q4_K_XL.gguf", n_ctx=8192, n_batch=512, n_gpu_layers=32, verbose=True)
 
 messages = [
     {
