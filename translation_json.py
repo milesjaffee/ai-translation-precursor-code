@@ -19,7 +19,7 @@ class AnnotatedTranslationSide(BaseModel):
     lang: str = Field(..., description="Language of this side of the translation.")
     text: dict[int, WordInAnnotatedTranslation] = Field({}, description="List of words on this side of the translation, ordered by an integer index.")
 
-class Translation(BaseModel):
+class AnnotatedAlignedTranslation(BaseModel):
     """Model for an annotated aligned translation"""
     source: AnnotatedTranslationSide = Field(..., description="The source side of an annotated translation.")
     translation: AnnotatedTranslationSide = Field(..., description="The post-translation side of an annotated translation.")
@@ -39,7 +39,7 @@ class TranslationAnnotationRequest(BaseModel):
 
 
 #Example
-daodejing1 = Translation(
+daodejing1 = AnnotatedAlignedTranslation(
     source=AnnotatedTranslationSide(
         lang="zh",
         text={
@@ -164,7 +164,7 @@ annotation_request_daodejing1 = TranslationAnnotationRequest(
     translation="""The Way that can be spoken of is not the eternal Way."""
 )
 
-spanish_joke = Translation(
+spanish_joke = AnnotatedAlignedTranslation(
     source=AnnotatedTranslationSide(
         lang="es",
         text={
@@ -343,13 +343,13 @@ annotation_request_istanbul_wikipedia = TranslationAnnotationRequest(
 #model = Llama.from_pretrained(checkpoint, device_map="auto", load_in_8bit=True, trust_remote_code=True, filename="*UD-Q4_K_XL.gguf", n_ctx=8192, n_batch=512, n_gpu_layers=32, verbose=True)
 
 checkpoint = "LiquidAI/LFM2.5-2.6B-GGUF"
-model = Llama.from_pretrained(checkpoint, device_map="auto", load_in_8bit=True, trust_remote_code=True, filename="*Q8_0.gguf", n_ctx=8192, n_batch=512, n_gpu_layers=32, verbose=True)
+model = Llama.from_pretrained(checkpoint, device_map="auto", trust_remote_code=True, filename="*Q8_0.gguf", n_ctx=16384, n_gpu_layers=32)
 
 messages_source_to_aligned = [
     {
         "role": "system",
-        "content": "You are an expert translator and linguist. Given a source text in one language, you will provide an annotated aligned translation, where each word in the source text is matched with its corresponding word(s) in your translated text. The output should be in JSON format, following the structure of the AnnotatedTranslation model. You will create the translation itself before filling in the 'match' fields."
-        f"Follow this schema: {json.dumps(Translation.model_json_schema(), indent=2)}",
+        "content": "You are an expert translator and linguist. Given a source text in one language, you will provide an annotated aligned translation, where each word in the source text is matched with its corresponding word(s) in your translated text. The output should be in JSON format, following the structure of the AnnotatedAlignedTranslation model. You will create the translation itself before filling in the 'match' fields."
+        f"Follow this schema: {json.dumps(AnnotatedAlignedTranslation.model_json_schema(), indent=2)}",
     },
     {"role": "user", "content": f"{request_daodejing1.model_dump_json(indent=2)}"},
     {"role": "assistant", "content": f"{daodejing1.model_dump_json(indent=2)}"},
@@ -361,8 +361,13 @@ messages_source_to_aligned = [
 messages_translation_to_aligned = [
     {
         "role": "system",
-        "content": "You are a helpful assistant. Given a source text in one language and its translation in another language, you will provide an annotated aligned translation, where each word in the source text is annotated with the index of its corresponding word(s) in the translated text via the 'match' field and has its meaning clarified via the 'meaning' and 'footnote' fields. The 'latin' field can be absent unless either the source or target language uses a non-Latin script. The output should be in JSON format, following the structure of the Translation model."
-        f"Follow this schema: {json.dumps(Translation.model_json_schema(), indent=2)}",
+        "content": "You are a helpful assistant. Given a source text in one language and its translation in another language, you will provide an accurate, complete, annotated, aligned version of the two texts." 
+        " Lucky for you, the translation itself has already been done! Your main task is alignment. For each word in the source text, identify the directly corresponding 'match' word(s) in the translated text. Please do not just lazily set the 'match' field to the index of the word itself. You are being graded on this and will be penalized harshly for doing it wrong. You will set the 'match' field for that word to the index(es) of the CORRESPONDING word(s) in the translated text, NOT the index of the word itself. You will also do the same for each word in the translated text, setting its 'match' field to the index(es) of the corresponding word(s) in the source text. These indexes should be 1-based, not 0-based, as seen in the subsequent examples."
+        " You will also provide meanings for each word in the other language using the 'meaning' field, and optionally provide footnotes for words that are ambiguous, idiomatic, puns, or otherwise difficult to translate directly."
+        " The 'latin' field can be absent unless either the source or target language uses a non-Latin script."
+        " Punctuation marks should be combined with the word they are attached to, and should be treated as part of that word for the purposes of alignment and meaning."
+        #"Each word in the source text is annotated with the index of its corresponding word(s) in the translated text (the other text, not its own index!) via the 'match' field, and vice versa. Each word has its meaning clarified via the 'meaning' and optional 'footnote' fields. The 'latin' field can be absent unless either the source or target language uses a non-Latin script."
+        f"Follow this schema: {json.dumps(AnnotatedAlignedTranslation.model_json_schema(), indent=2)}",
     },
     {"role": "user", "content": f"{annotation_request_daodejing1.model_dump_json(indent=2)}"},
     {"role": "assistant", "content": f"{daodejing1.model_dump_json(indent=2)}"},
@@ -371,7 +376,7 @@ messages_translation_to_aligned = [
     {"role": "user", "content": f"{annotation_request_istanbul_wikipedia.model_dump_json(indent=2)}"},
 ]
 
-response_format = {"type": "json_object", "schema": Translation.model_json_schema()}
+response_format = {"type": "json_object", "schema": AnnotatedAlignedTranslation.model_json_schema()}
 
 start = time.time()
 

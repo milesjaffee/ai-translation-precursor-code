@@ -1,0 +1,1702 @@
+{
+  "source": {
+    "lang": "en",
+    "text": {
+      "1": {
+        "word": "Istanbul",
+        "meaning": [
+          "Istanbul"
+        ],
+        "match": [
+          1
+        ],
+        "latin": "İstanbul",
+        "footnote": null
+      },
+      "2": {
+        "word": "is",
+        "meaning": [
+          "es"
+        ],
+        "match": [
+          2
+        ],
+        "latin": "est",
+        "footnote": null
+      },
+      "3": {
+        "word": "the",
+        "meaning": [],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      },
+      "4": {
+        "word": "largest",
+        "meaning": [
+          "más grande"
+        ],
+        "match": [
+          3
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "5": {
+        "word": "city",
+        "meaning": [
+          "ciudad"
+        ],
+        "match": [
+          4
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "6": {
+        "word": "in",
+        "meaning": [],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      },
+      "7": {
+        "word": "Turkey",
+        "meaning": [
+          "Turquía"
+        ],
+        "match": [
+          5
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "8": {
+        "word": "a",
+        "meaning": [
+          "una"
+        ],
+        "match": [
+          6
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "9": {
+        "word": "megacity",
+        "meaning": [
+          "megaciudad"
+        ],
+        "match": [
+          7
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "10": {
+        "word": "constituting",
+        "meaning": [
+          "constituye"
+        ],
+        "match": [
+          8
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "11": {
+        "word": "the",
+        "meaning": [],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      },
+      "12": {
+        "word": "country's",
+        "meaning": [
+          "del país"
+        ],
+        "match": [
+          9
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "13": {
+        "word": "economic",
+        "meaning": [
+          "económico"
+        ],
+        "match": [
+          10
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "14": {
+        "word": "cultural",
+        "meaning": [
+          "cultural"
+        ],
+        "match": [
+          11
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "15": {
+        "word": "and",
+        "meaning": [
+          "y"
+        ],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      },
+      "16": {
+        "word": "historical",
+        "meaning": [
+          "histórico"
+        ],
+        "match": [
+          12
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "17": {
+        "word": "center",
+        "meaning": [
+          "centro"
+        ],
+        "match": [
+          13
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "18": {
+        "word": ".,",
+        "meaning": [],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      },
+      "19": {
+        "word": "With",
+        "meaning": [
+          "Con"
+        ],
+        "match": [
+          14
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "20": {
+        "word": "a",
+        "meaning": [
+          "una"
+        ],
+        "match": [
+          15
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "21": {
+        "word": "population",
+        "meaning": [
+          "población"
+        ],
+        "match": [
+          16
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "22": {
+        "word": "of",
+        "meaning": [],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      },
+      "23": {
+        "word": "over",
+        "meaning": [
+          "más de"
+        ],
+        "match": [
+          17
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "24": {
+        "word": "15",
+        "meaning": [],
+        "match": [
+          18
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "25": {
+        "word": "million",
+        "meaning": [
+          "millón"
+        ],
+        "match": [
+          19
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "26": {
+        "word": "it",
+        "meaning": [],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      },
+      "27": {
+        "word": "is",
+        "meaning": [
+          "es"
+        ],
+        "match": [
+          20
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "28": {
+        "word": "home",
+        "meaning": [
+          "albergar"
+        ],
+        "match": [
+          21
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "29": {
+        "word": "to",
+        "meaning": [],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      },
+      "30": {
+        "word": "18%",
+        "meaning": [],
+        "match": [
+          22
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "31": {
+        "word": "of",
+        "meaning": [],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      },
+      "32": {
+        "word": "the",
+        "meaning": [],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      },
+      "33": {
+        "word": "population",
+        "meaning": [
+          "población"
+        ],
+        "match": [
+          23
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "34": {
+        "word": "of",
+        "meaning": [],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      },
+      "35": {
+        "word": "Turkey",
+        "meaning": [
+          "Turquía"
+        ],
+        "match": [
+          24
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "36": {
+        "word": ".,",
+        "meaning": [],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      },
+      "37": {
+        "word": "Istanbul",
+        "meaning": [
+          "Estambul"
+        ],
+        "match": [
+          25
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "38": {
+        "word": "is",
+        "meaning": [
+          "es"
+        ],
+        "match": [
+          26
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "39": {
+        "word": "the",
+        "meaning": [],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      },
+      "40": {
+        "word": "city",
+        "meaning": [
+          "ciudad"
+        ],
+        "match": [
+          27
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "41": {
+        "word": "on",
+        "meaning": [],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      },
+      "42": {
+        "word": "two",
+        "meaning": [
+          "dos"
+        ],
+        "match": [
+          28
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "43": {
+        "word": "continents",
+        "meaning": [
+          "continentes"
+        ],
+        "match": [
+          29
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "44": {
+        "word": ".;",
+        "meaning": [],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      },
+      "45": {
+        "word": "about",
+        "meaning": [
+          "aproximadamente"
+        ],
+        "match": [
+          30
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "46": {
+        "word": "two-thirds",
+        "meaning": [
+          "dos tercios"
+        ],
+        "match": [
+          31
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "47": {
+        "word": "of",
+        "meaning": [],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      },
+      "48": {
+        "word": "its",
+        "meaning": [
+          "su"
+        ],
+        "match": [
+          32
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "49": {
+        "word": "population",
+        "meaning": [
+          "población"
+        ],
+        "match": [
+          33
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "50": {
+        "word": "live",
+        "meaning": [
+          "viven"
+        ],
+        "match": [
+          34
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "51": {
+        "word": "in",
+        "meaning": [],
+        "match": [
+          35
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "52": {
+        "word": "Europe",
+        "meaning": [
+          "Europa"
+        ],
+        "match": [
+          36
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "53": {
+        "word": "and",
+        "meaning": [
+          "y"
+        ],
+        "match": [
+          37
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "54": {
+        "word": "the",
+        "meaning": [],
+        "match": [
+          38
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "55": {
+        "word": "rest",
+        "meaning": [
+          "el resto"
+        ],
+        "match": [
+          39
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "56": {
+        "word": "in",
+        "meaning": [],
+        "match": [
+          40
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "57": {
+        "word": "Asia",
+        "meaning": [
+          "Asia"
+        ],
+        "match": [
+          41
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "58": {
+        "word": ".,",
+        "meaning": [],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      },
+      "59": {
+        "word": "Istanbul",
+        "meaning": [
+          "Estambul"
+        ],
+        "match": [
+          42
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "60": {
+        "word": "straddles",
+        "meaning": [
+          "se extiende"
+        ],
+        "match": [
+          43
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "61": {
+        "word": "the",
+        "meaning": [],
+        "match": [
+          44
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "62": {
+        "word": "Bosphorus",
+        "meaning": [
+          "Bósforo"
+        ],
+        "match": [
+          45
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "63": {
+        "word": "–",
+        "meaning": [],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      },
+      "64": {
+        "word": "one",
+        "meaning": [],
+        "match": [
+          46
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "65": {
+        "word": "of",
+        "meaning": [],
+        "match": [
+          47
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "66": {
+        "word": "the",
+        "meaning": [],
+        "match": [
+          48
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "67": {
+        "word": "world's",
+        "meaning": [
+          "del mundo"
+        ],
+        "match": [
+          49
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "68": {
+        "word": "busiest",
+        "meaning": [
+          "más transitado"
+        ],
+        "match": [
+          50
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "69": {
+        "word": "waterways",
+        "meaning": [
+          "canales"
+        ],
+        "match": [
+          51
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "70": {
+        "word": "–",
+        "meaning": [],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      },
+      "71": {
+        "word": "in",
+        "meaning": [],
+        "match": [
+          52
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "72": {
+        "word": "northwestern",
+        "meaning": [
+          "noroeste"
+        ],
+        "match": [
+          53
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "73": {
+        "word": "Turkey",
+        "meaning": [
+          "Turquía"
+        ],
+        "match": [
+          54
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "74": {
+        "word": "between",
+        "meaning": [
+          "entre"
+        ],
+        "match": [
+          55
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "75": {
+        "word": "the",
+        "meaning": [],
+        "match": [
+          56
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "76": {
+        "word": "Sea",
+        "meaning": [
+          "Mar"
+        ],
+        "match": [
+          57
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "77": {
+        "word": "of",
+        "meaning": [],
+        "match": [
+          58
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "78": {
+        "word": "Mármara",
+        "meaning": [
+          "Mármara"
+        ],
+        "match": [
+          59
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "79": {
+        "word": "and",
+        "meaning": [
+          "y"
+        ],
+        "match": [
+          60
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "80": {
+        "word": "the",
+        "meaning": [],
+        "match": [
+          61
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "81": {
+        "word": "Black",
+        "meaning": [
+          "Negro"
+        ],
+        "match": [
+          62
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "82": {
+        "word": "Sea",
+        "meaning": [
+          "Mar"
+        ],
+        "match": [
+          63
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "83": {
+        "word": ".,",
+        "meaning": [],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      },
+      "84": {
+        "word": "Its",
+        "meaning": [],
+        "match": [
+          64
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "85": {
+        "word": "area",
+        "meaning": [
+          "área"
+        ],
+        "match": [
+          65
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "86": {
+        "word": "of",
+        "meaning": [],
+        "match": [
+          66
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "87": {
+        "word": "5,461",
+        "meaning": [],
+        "match": [
+          67
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "88": {
+        "word": "square",
+        "meaning": [
+          "kilómetros"
+        ],
+        "match": [
+          68
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "89": {
+        "word": "kilometers",
+        "meaning": [
+          "kilómetros"
+        ],
+        "match": [
+          69
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "90": {
+        "word": "is",
+        "meaning": [
+          "es"
+        ],
+        "match": [
+          70
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "91": {
+        "word": "coterminous",
+        "meaning": [
+          "coterminosa"
+        ],
+        "match": [
+          71
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "92": {
+        "word": "with",
+        "meaning": [],
+        "match": [
+          72
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "93": {
+        "word": "Istanbul",
+        "meaning": [
+          "Estambul"
+        ],
+        "match": [
+          73
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "94": {
+        "word": "Province",
+        "meaning": [
+          "Provincia"
+        ],
+        "match": [
+          74
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "95": {
+        "word": ".,",
+        "meaning": [],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      }
+    }
+  },
+  "translation": {
+    "lang": "es",
+    "text": {
+      "1": {
+        "word": "Estambul",
+        "meaning": [
+          "Istanbul"
+        ],
+        "match": [
+          1
+        ],
+        "latin": "İstanbul",
+        "footnote": null
+      },
+      "2": {
+        "word": "es",
+        "meaning": [
+          "es"
+        ],
+        "match": [
+          2
+        ],
+        "latin": "est",
+        "footnote": null
+      },
+      "3": {
+        "word": "la",
+        "meaning": [
+          "la"
+        ],
+        "match": [
+          3
+        ],
+        "latin": "la",
+        "footnote": null
+      },
+      "4": {
+        "word": "ciudad",
+        "meaning": [
+          "ciudad"
+        ],
+        "match": [
+          4
+        ],
+        "latin": "ciudad",
+        "footnote": null
+      },
+      "5": {
+        "word": "más",
+        "meaning": [
+          "más"
+        ],
+        "match": [
+          5
+        ],
+        "latin": "más",
+        "footnote": null
+      },
+      "6": {
+        "word": "grande",
+        "meaning": [
+          "grande"
+        ],
+        "match": [
+          6
+        ],
+        "latin": "grande",
+        "footnote": null
+      },
+      "7": {
+        "word": "de",
+        "meaning": [
+          "de"
+        ],
+        "match": [
+          7
+        ],
+        "latin": "de",
+        "footnote": null
+      },
+      "8": {
+        "word": "Turquía",
+        "meaning": [
+          "Turquía"
+        ],
+        "match": [
+          8
+        ],
+        "latin": "Turquía",
+        "footnote": null
+      },
+      "9": {
+        "word": "una",
+        "meaning": [
+          "una"
+        ],
+        "match": [
+          9
+        ],
+        "latin": "una",
+        "footnote": null
+      },
+      "10": {
+        "word": "megaciudad",
+        "meaning": [
+          "megaciudad"
+        ],
+        "match": [
+          10
+        ],
+        "latin": "megaciudad",
+        "footnote": null
+      },
+      "11": {
+        "word": "que",
+        "meaning": [
+          "que"
+        ],
+        "match": [
+          11
+        ],
+        "latin": "que",
+        "footnote": null
+      },
+      "12": {
+        "word": "constituye",
+        "meaning": [
+          "constituye"
+        ],
+        "match": [
+          12
+        ],
+        "latin": "constituye",
+        "footnote": null
+      },
+      "13": {
+        "word": "el",
+        "meaning": [
+          "el"
+        ],
+        "match": [
+          13
+        ],
+        "latin": "el",
+        "footnote": null
+      },
+      "14": {
+        "word": "centro",
+        "meaning": [
+          "centro"
+        ],
+        "match": [
+          14
+        ],
+        "latin": "centro",
+        "footnote": null
+      },
+      "15": {
+        "word": "económico",
+        "meaning": [
+          "económico"
+        ],
+        "match": [
+          15
+        ],
+        "latin": "económico",
+        "footnote": null
+      },
+      "16": {
+        "word": "cultural",
+        "meaning": [
+          "cultural"
+        ],
+        "match": [
+          16
+        ],
+        "latin": "cultural",
+        "footnote": null
+      },
+      "17": {
+        "word": "e",
+        "meaning": [
+          "y"
+        ],
+        "match": [
+          17
+        ],
+        "latin": "y",
+        "footnote": null
+      },
+      "18": {
+        "word": "histórico",
+        "meaning": [
+          "histórico"
+        ],
+        "match": [
+          18
+        ],
+        "latin": "histórico",
+        "footnote": null
+      },
+      "19": {
+        "word": ".,",
+        "meaning": [],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      },
+      "20": {
+        "word": "Con",
+        "meaning": [
+          "Con"
+        ],
+        "match": [
+          19
+        ],
+        "latin": "Con",
+        "footnote": null
+      },
+      "21": {
+        "word": "una",
+        "meaning": [
+          "una"
+        ],
+        "match": [
+          20
+        ],
+        "latin": "una",
+        "footnote": null
+      },
+      "22": {
+        "word": "población",
+        "meaning": [
+          "población"
+        ],
+        "match": [
+          21
+        ],
+        "latin": "población",
+        "footnote": null
+      },
+      "23": {
+        "word": "de",
+        "meaning": [],
+        "match": [
+          22
+        ],
+        "latin": "de",
+        "footnote": null
+      },
+      "24": {
+        "word": "más",
+        "meaning": [
+          "más"
+        ],
+        "match": [
+          23
+        ],
+        "latin": "más",
+        "footnote": null
+      },
+      "25": {
+        "word": "de",
+        "meaning": [],
+        "match": [
+          24
+        ],
+        "latin": "de",
+        "footnote": null
+      },
+      "26": {
+        "word": "15",
+        "meaning": [],
+        "match": [
+          25
+        ],
+        "latin": "15",
+        "footnote": null
+      },
+      "27": {
+        "word": "millón",
+        "meaning": [
+          "millón"
+        ],
+        "match": [
+          26
+        ],
+        "latin": "millón",
+        "footnote": null
+      },
+      "28": {
+        "word": "it",
+        "meaning": [],
+        "match": [
+          27
+        ],
+        "latin": "lo",
+        "footnote": null
+      },
+      "29": {
+        "word": "es",
+        "meaning": [
+          "es"
+        ],
+        "match": [
+          28
+        ],
+        "latin": "es",
+        "footnote": null
+      },
+      "30": {
+        "word": "albergar",
+        "meaning": [
+          "albergar"
+        ],
+        "match": [
+          29
+        ],
+        "latin": "albergar",
+        "footnote": null
+      },
+      "31": {
+        "word": "al",
+        "meaning": [],
+        "match": [
+          30
+        ],
+        "latin": "al",
+        "footnote": null
+      },
+      "32": {
+        "word": "18%",
+        "meaning": [],
+        "match": [
+          31
+        ],
+        "latin": "18%",
+        "footnote": null
+      },
+      "33": {
+        "word": "de",
+        "meaning": [],
+        "match": [
+          32
+        ],
+        "latin": "de",
+        "footnote": null
+      },
+      "34": {
+        "word": "la",
+        "meaning": [],
+        "match": [
+          33
+        ],
+        "latin": "la",
+        "footnote": null
+      },
+      "35": {
+        "word": "población",
+        "meaning": [
+          "población"
+        ],
+        "match": [
+          34
+        ],
+        "latin": "población",
+        "footnote": null
+      },
+      "36": {
+        "word": "de",
+        "meaning": [],
+        "match": [
+          35
+        ],
+        "latin": "de",
+        "footnote": null
+      },
+      "37": {
+        "word": "Turquía",
+        "meaning": [
+          "Turquía"
+        ],
+        "match": [
+          36
+        ],
+        "latin": "Turquía",
+        "footnote": null
+      },
+      "38": {
+        "word": ".,",
+        "meaning": [],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      },
+      "39": {
+        "word": "Estambul",
+        "meaning": [
+          "Estambul"
+        ],
+        "match": [
+          37
+        ],
+        "latin": null,
+        "footnote": null
+      },
+      "40": {
+        "word": "es",
+        "meaning": [
+          "es"
+        ],
+        "match": [
+          38
+        ],
+        "latin": "es",
+        "footnote": null
+      },
+      "41": {
+        "word": "la",
+        "meaning": [],
+        "match": [
+          39
+        ],
+        "latin": "la",
+        "footnote": null
+      },
+      "42": {
+        "word": "ciudad",
+        "meaning": [
+          "ciudad"
+        ],
+        "match": [
+          40
+        ],
+        "latin": "ciudad",
+        "footnote": null
+      },
+      "43": {
+        "word": "en",
+        "meaning": [],
+        "match": [
+          41
+        ],
+        "latin": "en",
+        "footnote": null
+      },
+      "44": {
+        "word": "dos",
+        "meaning": [
+          "dos"
+        ],
+        "match": [
+          42
+        ],
+        "latin": "dos",
+        "footnote": null
+      },
+      "45": {
+        "word": "continentes",
+        "meaning": [
+          "continentes"
+        ],
+        "match": [
+          43
+        ],
+        "latin": "continentes",
+        "footnote": null
+      },
+      "46": {
+        "word": ".;",
+        "meaning": [],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      },
+      "47": {
+        "word": "aproximadamente",
+        "meaning": [
+          "aproximadamente"
+        ],
+        "match": [
+          44
+        ],
+        "latin": "aproximadamente",
+        "footnote": null
+      },
+      "48": {
+        "word": "de",
+        "meaning": [],
+        "match": [
+          45
+        ],
+        "latin": "de",
+        "footnote": null
+      },
+      "49": {
+        "word": "la",
+        "meaning": [],
+        "match": [
+          46
+        ],
+        "latin": "la",
+        "footnote": null
+      },
+      "50": {
+        "word": "población",
+        "meaning": [
+          "población"
+        ],
+        "match": [
+          47
+        ],
+        "latin": "población",
+        "footnote": null
+      },
+      "51": {
+        "word": "de",
+        "meaning": [],
+        "match": [
+          48
+        ],
+        "latin": "de",
+        "footnote": null
+      },
+      "52": {
+        "word": "Turquía",
+        "meaning": [
+          "Turquía"
+        ],
+        "match": [
+          49
+        ],
+        "latin": "Turquía",
+        "footnote": null
+      },
+      "53": {
+        "word": "noroeste",
+        "meaning": [
+          "noroeste"
+        ],
+        "match": [
+          50
+        ],
+        "latin": "noroeste",
+        "footnote": null
+      },
+      "54": {
+        "word": "la",
+        "meaning": [],
+        "match": [
+          51
+        ],
+        "latin": "la",
+        "footnote": null
+      },
+      "55": {
+        "word": "entre",
+        "meaning": [
+          "entre"
+        ],
+        "match": [
+          52
+        ],
+        "latin": "entre",
+        "footnote": null
+      },
+      "56": {
+        "word": "la",
+        "meaning": [],
+        "match": [
+          53
+        ],
+        "latin": "la",
+        "footnote": null
+      },
+      "57": {
+        "word": "Mar",
+        "meaning": [
+          "Mar"
+        ],
+        "match": [
+          54
+        ],
+        "latin": "Mar",
+        "footnote": null
+      },
+      "58": {
+        "word": "de",
+        "meaning": [],
+        "match": [
+          55
+        ],
+        "latin": "de",
+        "footnote": null
+      },
+      "59": {
+        "word": "Mármara",
+        "meaning": [
+          "Mármara"
+        ],
+        "match": [
+          55
+        ],
+        "latin": "Mármara",
+        "footnote": null
+      },
+      "60": {
+        "word": "y",
+        "meaning": [
+          "y"
+        ],
+        "match": [
+          56
+        ],
+        "latin": "y",
+        "footnote": null
+      },
+      "61": {
+        "word": "el",
+        "meaning": [],
+        "match": [
+          57
+        ],
+        "latin": "el",
+        "footnote": null
+      },
+      "62": {
+        "word": "Negro",
+        "meaning": [
+          "Negro"
+        ],
+        "match": [
+          58
+        ],
+        "latin": "Negro",
+        "footnote": null
+      },
+      "63": {
+        "word": "Mar",
+        "meaning": [
+          "Mar"
+        ],
+        "match": [
+          59
+        ],
+        "latin": "Mar",
+        "footnote": null
+      },
+      "64": {
+        "word": ".,",
+        "meaning": [],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      },
+      "65": {
+        "word": "Su",
+        "meaning": [],
+        "match": [
+          60
+        ],
+        "latin": "Su",
+        "footnote": null
+      },
+      "66": {
+        "word": "área",
+        "meaning": [
+          "área"
+        ],
+        "match": [
+          61
+        ],
+        "latin": "área",
+        "footnote": null
+      },
+      "67": {
+        "word": "de",
+        "meaning": [],
+        "match": [
+          62
+        ],
+        "latin": "de",
+        "footnote": null
+      },
+      "68": {
+        "word": "5,461",
+        "meaning": [],
+        "match": [
+          63
+        ],
+        "latin": "5,461",
+        "footnote": null
+      },
+      "69": {
+        "word": "kilómetros",
+        "meaning": [
+          "kilómetros"
+        ],
+        "match": [
+          64
+        ],
+        "latin": "kilómetros",
+        "footnote": null
+      },
+      "70": {
+        "word": "es",
+        "meaning": [
+          "es"
+        ],
+        "match": [
+          65
+        ],
+        "latin": "es",
+        "footnote": null
+      },
+      "71": {
+        "word": "coterminosa",
+        "meaning": [
+          "coterminosa"
+        ],
+        "match": [
+          66
+        ],
+        "latin": "coterminosa",
+        "footnote": null
+      },
+      "72": {
+        "word": "con",
+        "meaning": [],
+        "match": [
+          67
+        ],
+        "latin": "con",
+        "footnote": null
+      },
+      "73": {
+        "word": "Estambul",
+        "meaning": [
+          "Estambul"
+        ],
+        "match": [
+          68
+        ],
+        "latin": "Estambul",
+        "footnote": null
+      },
+      "74": {
+        "word": "Provincia",
+        "meaning": [
+          "Provincia"
+        ],
+        "match": [
+          69
+        ],
+        "latin": "Provincia",
+        "footnote": null
+      },
+      "75": {
+        "word": ".,",
+        "meaning": [],
+        "match": [],
+        "latin": null,
+        "footnote": null
+      }
+    }
+  }
+}
