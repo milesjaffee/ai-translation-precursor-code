@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Alignment pipeline</title>
+    <link rel="stylesheet" href="{% static 'aligner/style.css' %}">
+</head>
+<body>
+    <h1>Alignment pipeline</h1>
+
+    <form id="align-form">
+        {% csrf_token %}
+        <div class="field-pair">
+            <label>
+                Source language
+                <input type="text" name="source_lang" placeholder="en" required>
+            </label>
+            <label class="grow">
+                Source text
+                <textarea name="source" rows="6" required></textarea>
+            </label>
+        </div>
+        <div class="field-pair">
+            <label>
+                Translation language
+                <input type="text" name="target_lang" placeholder="es" required>
+            </label>
+            <label class="grow">
+                Translation text
+                <textarea name="target" rows="6" required></textarea>
+            </label>
+        </div>
+        <button type="submit">Align</button>
+        <span id="status"></span>
+    </form>
+
+    <div id="result" hidden>
+        <h2>Source</h2>
+        <p id="source-output" class="word-output"></p>
+        <h2>Translation</h2>
+        <p id="target-output" class="word-output"></p>
+    </div>
+
+    <script src="{% static 'aligner/app.js' %}"></script>
+</body>
+</html>
