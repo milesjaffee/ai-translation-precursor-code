@@ -19,6 +19,8 @@ from pydantic import BaseModel, Field, create_model
 import icu
 import pysbd
 
+from few_shot_examples import FEW_SHOT_EXAMPLES
+
 LATIN_SCRIPT_LANGS = {"en", "es", "fr", "de", "it", "pt", "tr", "nl", "sv", "id", "vi"}
 NO_SPACE_SCRIPTS = {"zh", "ja", "th", "lo", "km", "my"}
 
@@ -142,97 +144,6 @@ def split_sentences(text: str, lang: str):
     """Split text into sentences using pysbd, which is language-aware."""
     seg = pysbd.Segmenter(language=lang, clean=False)
     return seg.segment(text)
-
-
-# Worked examples, primed into the conversation once before the real
-# per-sentence turns. Annotations are hand-written for the CURRENT
-# tokenizer's output (e.g. ICU merges "非常" into one token), and
-# already match alignment_schema's shape -- no 'word' field, indices
-# 1-based, 'opposite_translation_index' rather than 'match'.
-FEW_SHOT_EXAMPLES = [
-    {
-        # lzh (Literary Chinese), not zh -- see the lzh branch in
-        # tokenize(): 非常 is one modern word but two classical ones.
-        "source_lang": "lzh", "target_lang": "en",
-        "source_text": "道可道，非常道",
-        "target_text": "The Way that can be spoken of is not the eternal Way.",
-        "source_annotations": [
-            {"meaning": ["the Way", "the Tao", "path"], "opposite_translation_index": [2], "latin": "dào"},
-            {"meaning": ["can", "may", "able to"], "opposite_translation_index": [4], "latin": "kě"},
-            {"meaning": ["to speak", "to say"], "opposite_translation_index": [6,7], "latin": "dào",
-             "footnote": "Same character as 'the Way' -- this line is a pun on 'way' vs. 'to speak'."},
-            {"meaning": [], "opposite_translation_index": [], "latin": ","},
-            {"meaning": ["not", "non-", "un-"], "opposite_translation_index": [9], "latin": "fēi"},
-            {"meaning": ["eternal", "constant", "unchanging"], "opposite_translation_index": [11], "latin": "cháng"},
-            {"meaning": ["the Way", "the Tao", "path"], "opposite_translation_index": [12], "latin": "dào"},
-        ],
-        "target_annotations": [
-            {"meaning": [], "opposite_translation_index": []},
-            {"meaning": ["道"], "opposite_translation_index": [1]},
-            {"meaning": [], "opposite_translation_index": []},
-            {"meaning": ["可"], "opposite_translation_index": [2]},
-            {"meaning": [], "opposite_translation_index": []},
-            {"meaning": ["道"], "opposite_translation_index": [3]},
-            {"meaning": [], "opposite_translation_index": []},
-            {"meaning": [], "opposite_translation_index": []},
-            {"meaning": ["非"], "opposite_translation_index": [5]},
-            {"meaning": [], "opposite_translation_index": []},
-            {"meaning": ["常"], "opposite_translation_index": [6]},
-            {"meaning": ["道"], "opposite_translation_index": [7]},
-            {"meaning": [], "opposite_translation_index": []},
-        ],
-    },
-    {
-        "source_lang": "es", "target_lang": "en",
-        "source_text": "¡Socorro, me ha picado una víbora! ¿Cobra? No, gratis.",
-        "target_text": "Help! I've been bitten by a viper! Does it cost money? No, it's free.",
-        "source_annotations": [
-            {"meaning": [], "opposite_translation_index": []},
-            {"meaning": ["Help"], "opposite_translation_index": [1]},
-            {"meaning": [], "opposite_translation_index": []},
-            {"meaning": ["me", "myself", "I"], "opposite_translation_index": [3]},
-            {"meaning": ["has", "have"], "opposite_translation_index": [4, 5,6]},
-            {"meaning": ["bitten", "stung"], "opposite_translation_index": [7]},
-            {"meaning": ["a", "one"], "opposite_translation_index": [9]},
-            {"meaning": ["viper", "snake"], "opposite_translation_index": [10]},
-            {"meaning": [], "opposite_translation_index": [11]},
-            {"meaning": [], "opposite_translation_index": []},
-            {"meaning": ["Cobra (the snake)", "Does it cost money?"], "opposite_translation_index": [12, 13, 14, 15],
-             "footnote": "Pun: 'cobra' is both the snake and a form of 'cobrar' (to charge money), asked as a question."},
-            {"meaning": [], "opposite_translation_index": [16]},
-            {"meaning": ["No"], "opposite_translation_index": [17]},
-            {"meaning": [], "opposite_translation_index": [18]},
-            {"meaning": ["free", "gratis"], "opposite_translation_index": [20,21, 22]},
-            {"meaning": [], "opposite_translation_index": [23]},
-        ],
-        "target_annotations": [
-            {"meaning": ["¡Socorro!", "¡Ayuda!"], "opposite_translation_index": [2]},
-            {"meaning": [], "opposite_translation_index": []},
-            {"meaning": ["me"], "opposite_translation_index": [4]},
-            {"meaning": ["ha"], "opposite_translation_index": [5]},
-            {"meaning": ["ha"], "opposite_translation_index": [5]},
-            {"meaning": [], "opposite_translation_index": []},
-            {"meaning": ["picado"], "opposite_translation_index": [6]},
-            {"meaning": [], "opposite_translation_index": []},
-            {"meaning": ["una"], "opposite_translation_index": [7]},
-            {"meaning": ["víbora"], "opposite_translation_index": [8]},
-            {"meaning": [], "opposite_translation_index": [9]},
-            {"meaning": ["cobra"], "opposite_translation_index": [11],
-             "footnote": "Part of the pun rendering of 'Cobra?' as an English question."},
-            {"meaning": ["lo"], "opposite_translation_index": [11]},
-            {"meaning": ["cobra"], "opposite_translation_index": [11]},
-            {"meaning": ["cobra","dinero"], "opposite_translation_index": [11]},
-            {"meaning": [], "opposite_translation_index": [12]},
-            {"meaning": ["No"], "opposite_translation_index": [13]},
-            {"meaning": [], "opposite_translation_index": [14]},
-            {"meaning": [], "opposite_translation_index": []},
-            {"meaning": ["gratis"], "opposite_translation_index": [15]},
-            {"meaning": ["gratis"], "opposite_translation_index": [15]},
-            {"meaning": ["gratis"], "opposite_translation_index": [15]},
-            {"meaning": [], "opposite_translation_index": [16]},
-        ],
-    },
-]
 
 
 def few_shot_messages():
