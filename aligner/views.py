@@ -28,7 +28,7 @@ class AlignView(APIView):
                 data['source_lang'],
                 data['target_lang'],
             )
-        except AssertionError as e:
+        except (AssertionError, ValueError) as e:
             return Response({'detail': str(e)}, status=status.HTTP_400_BAD_REQUEST)
 
         return Response(result)

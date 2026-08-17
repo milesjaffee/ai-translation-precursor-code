@@ -4,6 +4,7 @@ const resultEl = document.getElementById('result');
 const outputs = {
     source: document.getElementById('source-output'),
     translation: document.getElementById('target-output'),
+    raw: document.getElementById('raw-output'),
 };
 
 const otherSide = { source: 'translation', translation: 'source' };
@@ -41,6 +42,7 @@ function highlight(side, span) {
         const match = otherContainer.querySelector(`.word[data-idx="${idx}"]`);
         if (match) match.classList.add('match');
     });
+    span.classList.add('match');
 }
 
 function clearHighlights() {
@@ -81,6 +83,7 @@ form.addEventListener('submit', async (event) => {
 
         renderSide('source', data.source);
         renderSide('translation', data.translation);
+        outputs['raw'].innerHTML = data;
         resultEl.hidden = false;
         statusEl.textContent = '';
     } catch (err) {
