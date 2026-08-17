@@ -22,7 +22,7 @@ annotation_request_istanbul_wikipedia = {
         """,
 }
 
-print(alignment_pipeline.align_document(
+print(alignment_pipeline.align_and_annotate(
     model,
     annotation_request_istanbul_wikipedia["source"],
     annotation_request_istanbul_wikipedia["translation"],
