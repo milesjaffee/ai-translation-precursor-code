@@ -18,7 +18,7 @@ function renderSide(side, words) {
         span.textContent = w.word;
         span.dataset.side = side;
         span.dataset.idx = String(i + 1);
-        span.dataset.match = JSON.stringify(w.opposite_translation_index || []);
+        span.dataset.match = JSON.stringify(w.match || []);
 
         const titleParts = [];
         if (w.latin) titleParts.push(w.latin);
@@ -83,7 +83,7 @@ form.addEventListener('submit', async (event) => {
 
         renderSide('source', data.source);
         renderSide('translation', data.translation);
-        outputs['raw'].innerHTML = data;
+        outputs['raw'].innerHTML = JSON.stringify(data, null, 2);
         resultEl.hidden = false;
         statusEl.textContent = '';
     } catch (err) {
