@@ -5,3 +5,4 @@ pydantic==2.13.4
 regex
 pyicu
 pysbd
+openai

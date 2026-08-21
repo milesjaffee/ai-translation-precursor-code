@@ -288,7 +288,7 @@ def _alignment_few_shot_messages():
     return messages
 
 
-def align_and_annotate(model, source_text, target_text, source_lang, target_lang, context=""):
+def align_and_annotate(client, source_text, target_text, source_lang, target_lang, context=""):
     source_tokens = tokenize(source_text, source_lang)
     target_tokens = tokenize(target_text, target_lang)
     schema = alignment_schema(source_lang, target_lang, len(source_tokens), len(target_tokens))
@@ -298,9 +298,8 @@ def align_and_annotate(model, source_text, target_text, source_lang, target_lang
         *_alignment_few_shot_messages(),
         {"role": "user", "content": build_alignment_prompt(source_tokens, target_tokens, source_lang, target_lang, context)},
     ]
-    response_format = {"type": "json_object", "schema": schema.model_json_schema()}
-    result = model.create_chat_completion(messages=messages, response_format=response_format)
-    parsed = json.loads(result["choices"][0]["message"]["content"])
+    result = client.responses.parse(model="gpt-5.6-luna", input=messages, text_format=schema)
+    parsed = result.output_parsed.model_dump()
 
     for i, tok in enumerate(source_tokens):
         parsed["source"][i]["word"] = tok
@@ -340,15 +339,14 @@ def _grouping_few_shot_messages():
     return messages
 
 
-def group_sentences(model, source_sents, target_sents, source_lang, target_lang):
+def group_sentences(client, source_sents, target_sents, source_lang, target_lang):
     messages = [
         {"role": "system", "content": "You are an expert translator aligning sentences between a source text and its translation."},
         *_grouping_few_shot_messages(),
         {"role": "user", "content": build_grouping_prompt(source_sents, target_sents, source_lang, target_lang)},
     ]
-    response_format = {"type": "json_object", "schema": SentenceGrouping.model_json_schema()}
-    result = model.create_chat_completion(messages=messages, response_format=response_format)
-    return json.loads(result["choices"][0]["message"]["content"])["groups"]
+    result = client.responses.parse(model="gpt-5.6-luna", input=messages, text_format=SentenceGrouping)
+    return [g.model_dump() for g in result.output_parsed.groups]
 
 
 # =======================================================================

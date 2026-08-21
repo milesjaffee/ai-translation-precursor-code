@@ -19,10 +19,11 @@ class AlignView(APIView):
         serializer.is_valid(raise_exception=True)
         data = serializer.validated_data
 
-        model = model_singleton.get_model()
+        client = model_singleton.get_client()
+        
         try:
             result = alignment_pipeline.align_and_annotate(
-                model,
+                client,
                 data['source'],
                 data['target'],
                 data['source_lang'],

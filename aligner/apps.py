@@ -11,4 +11,4 @@ class AlignerConfig(AppConfig):
         # not for `manage.py migrate`/`makemigrations`/`shell`/etc.
         if 'runserver' in sys.argv:
             from . import model_singleton
-            model_singleton.get_model()
+            model_singleton.get_client()

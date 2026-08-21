@@ -1,6 +1,8 @@
 from llama_cpp import Llama
+from openai import OpenAI
+from instance import environment
 
-_model = None
+_model, _client = None, None
 
 
 def get_model():
@@ -18,3 +20,10 @@ def get_model():
             verbose=False,
         )
     return _model
+
+def get_client():
+    """Load OpenAI API"""
+    global _client
+    if _client is None:
+        _client = OpenAI(api_key=environment.OPENAI_API_KEY)
+    return _client

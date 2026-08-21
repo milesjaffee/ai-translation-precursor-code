@@ -37,6 +37,7 @@ function renderSide(side, words) {
 function highlight(side, span) {
     span.classList.add('self');
     const matchIdxs = JSON.parse(span.dataset.match);
+    console.log(matchIdxs);
     const otherContainer = outputs[otherSide[side]];
     matchIdxs.forEach((idx) => {
         const match = otherContainer.querySelector(`.word[data-idx="${idx}"]`);
@@ -83,7 +84,7 @@ form.addEventListener('submit', async (event) => {
 
         renderSide('source', data.source);
         renderSide('translation', data.translation);
-        outputs['raw'].innerHTML = JSON.stringify(data, null, 2);
+        outputs['raw'].innerHTML = JSON.stringify(data.source, null, 2) + JSON.stringify(data.translation, null, 2);
         resultEl.hidden = false;
         statusEl.textContent = '';
     } catch (err) {
