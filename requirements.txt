@@ -1,8 +1,11 @@
 Django==6.1
 djangorestframework==3.18.0
-llama-cpp-python==0.3.34
 pydantic==2.13.4
 regex
 pyicu
 pysbd
 openai
+gunicorn
+psycopg2-binary
+whitenoise
+django-environ

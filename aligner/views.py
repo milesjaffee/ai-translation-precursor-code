@@ -22,7 +22,7 @@ class AlignView(APIView):
         client = model_singleton.get_client()
         
         try:
-            result = alignment_pipeline.align_and_annotate(
+            result = alignment_pipeline.align_document(
                 client,
                 data['source'],
                 data['target'],
