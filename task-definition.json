@@ -1,0 +1,79 @@
+{
+  "family": "ai-translation-prototype",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "512",
+  "memory": "1024",
+  "executionRoleArn": "arn:aws:iam::906344627150:role/ai-translation-prototype-ecs-execution-role",
+  "containerDefinitions": [
+    {
+      "name": "web",
+      "image": "906344627150.dkr.ecr.us-east-1.amazonaws.com/ai-translation/prototype:test",
+      "essential": true,
+      "portMappings": [
+        {
+          "name": "web",
+          "containerPort": 8000,
+          "hostPort": 8000,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        {
+          "name": "DEBUG",
+          "value": "False"
+        },
+        {
+          "name": "ALLOWED_HOSTS",
+          "value": "ai-translation-prototype-alb-1267466755.us-east-1.elb.amazonaws.com"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "SECRET_KEY",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:906344627150:secret:ai-translation/prototype/production-kNuW4q:SECRET_KEY::"
+        },
+        {
+          "name": "DB_NAME",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:906344627150:secret:ai-translation/prototype/production-kNuW4q:DB_NAME::"
+        },
+        {
+          "name": "DB_USER",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:906344627150:secret:ai-translation/prototype/production-kNuW4q:DB_USER::"
+        },
+        {
+          "name": "DB_PASSWORD",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:906344627150:secret:ai-translation/prototype/production-kNuW4q:DB_PASSWORD::"
+        },
+        {
+          "name": "DB_HOST",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:906344627150:secret:ai-translation/prototype/production-kNuW4q:DB_HOST::"
+        },
+        {
+          "name": "DB_PORT",
+          "valueFrom": "arn:aws:secretsmanager:us-east-1:906344627150:secret:ai-translation/prototype/production-kNuW4q:DB_PORT::"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/ai-translation/prototype",
+          "awslogs-region": "us-east-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      },
+      "healthCheck": {
+        "command": [
+          "CMD-SHELL",
+          "python -c \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health/', timeout=5)\""
+        ],
+        "interval": 30,
+        "timeout": 10,
+        "retries": 3,
+        "startPeriod": 30
+      }
+    }
+  ]
+}
